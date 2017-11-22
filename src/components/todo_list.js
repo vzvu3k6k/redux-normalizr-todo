@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import ImmutablePropTypes from "react-immutable-proptypes";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -26,7 +27,8 @@ class TodoList extends Component {
 }
 
 TodoList.propTypes = {
-  todos: ImmutablePropTypes.orderedSet.isRequired
+  todos: ImmutablePropTypes.orderedSet.isRequired,
+  fetchTodos: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {

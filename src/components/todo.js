@@ -1,7 +1,9 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { TodoType } from "../models/todo";
+import { UserType } from "../models/user";
 import { finishTodo } from "../actions/todos";
 
 class Todo extends Component {
@@ -38,7 +40,9 @@ class Todo extends Component {
 }
 
 Todo.propTypes = {
-  todo: TodoType.isRequired
+  todo: TodoType.isRequired,
+  user: UserType.isRequired,
+  onClickDone: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state, ownProps) {

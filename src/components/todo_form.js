@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { createTodo } from '../actions/todos';
-import UserList from './user_list';
-import TextForm from './text_form';
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { createTodo } from "../actions/todos";
+import UserList from "./user_list";
+import TextForm from "./text_form";
 
 class TodoForm extends Component {
   onClick() {
@@ -13,14 +13,14 @@ class TodoForm extends Component {
   }
 
   onSelect(selectedUserEntityId) {
-    this.setState({selectedUserEntityId});
+    this.setState({ selectedUserEntityId });
   }
 
   render() {
     return (
-      <div className='todo-form'>
-        <UserList ref='owner'/>
-        <input ref='input' type='text'/>
+      <div className="todo-form">
+        <UserList ref="owner" />
+        <input ref="input" type="text" />
         <button onClick={this.onClick.bind(this)}>Save</button>
       </div>
     );
@@ -32,12 +32,12 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    onClick: createTodo,
-  }, dispatch);
-};
+  return bindActionCreators(
+    {
+      onClick: createTodo
+    },
+    dispatch
+  );
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);

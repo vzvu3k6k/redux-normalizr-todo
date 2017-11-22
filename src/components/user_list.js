@@ -1,9 +1,8 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import ImmutablePropTypes from 'react-immutable-proptypes';
-import { bindActionCreators } from 'redux';
-import { fetchUsers } from '../actions/users';
-
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import ImmutablePropTypes from "react-immutable-proptypes";
+import { bindActionCreators } from "redux";
+import { fetchUsers } from "../actions/users";
 
 class UserList extends Component {
   get value() {
@@ -16,39 +15,48 @@ class UserList extends Component {
 
   render() {
     return (
-      <div className='.user-list' style={{display: 'inline-block'}}>
-        <select ref='selector'>
-          {this.props.users.map((user) => {
+      <div className=".user-list" style={{ display: "inline-block" }}>
+        <select ref="selector">
+          {this.props.users.map(user => {
             const props = {
               key: user.entityId,
-              value: user.entityId,
+              value: user.entityId
             };
-            return <option {...props}>{user.name}{user.isBusy ? ':Busy' : ''}</option>;
+            return (
+              <option {...props}>
+                {user.name}
+                {user.isBusy ? ":Busy" : ""}
+              </option>
+            );
           })}
         </select>
       </div>
-    )
+    );
   }
 }
 
 UserList.propTypes = {
   users: ImmutablePropTypes.orderedSet.isRequired,
-  fetchUsers: PropTypes.func.isRequired,
-}
+  fetchUsers: PropTypes.func.isRequired
+};
 
 function mapStateToProps(state) {
-  return { users: state.users.get('users').map((entityId) => { return state.entities.users.get(entityId); }) };
+  return {
+    users: state.users.get("users").map(entityId => {
+      return state.entities.users.get(entityId);
+    })
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    fetchUsers,
-  }, dispatch);
-};
+  return bindActionCreators(
+    {
+      fetchUsers
+    },
+    dispatch
+  );
+}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  undefined,
-  {withRef: true}
-)(UserList);
+export default connect(mapStateToProps, mapDispatchToProps, undefined, {
+  withRef: true
+})(UserList);

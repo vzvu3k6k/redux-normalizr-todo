@@ -1,13 +1,13 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import entities from './entities';
-import todos from './todos';
-import users from './users';
+import entities from "./entities";
+import todos from "./todos";
+import users from "./users";
 
 export const reducers = {
   entities,
   todos,
-  users,
+  users
 };
 
 export default combineReducers(reducers);

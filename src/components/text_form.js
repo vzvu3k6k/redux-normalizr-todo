@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from "react";
 
 export default class TextForm extends Component {
   onClick() {
@@ -7,8 +7,9 @@ export default class TextForm extends Component {
 
   render() {
     return (
-      <div className='.text-form'>
-        <input ref='input' type='text'/><button onClick={this.onClick.bind(this)}>Save</button>
+      <div className=".text-form">
+        <input ref="input" type="text" />
+        <button onClick={this.onClick.bind(this)}>Save</button>
       </div>
     );
   }

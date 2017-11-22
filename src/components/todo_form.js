@@ -7,8 +7,8 @@ import TextForm from "./text_form";
 
 class TodoForm extends Component {
   onClick() {
-    const body = this.refs.input.value;
-    const userEntityId = this.refs.owner.getWrappedInstance().value;
+    const body = this.input.value;
+    const userEntityId = this.owner.getWrappedInstance().value;
     this.props.onClick(body, userEntityId);
   }
 
@@ -19,8 +19,17 @@ class TodoForm extends Component {
   render() {
     return (
       <div className="todo-form">
-        <UserList ref="owner" />
-        <input ref="input" type="text" />
+        <UserList
+          ref={owner => {
+            this.owner = owner;
+          }}
+        />
+        <input
+          ref={input => {
+            this.input = input;
+          }}
+          type="text"
+        />
         <button onClick={this.onClick.bind(this)}>Save</button>
       </div>
     );

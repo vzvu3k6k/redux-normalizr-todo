@@ -6,7 +6,7 @@ import { fetchUsers } from "../actions/users";
 
 class UserList extends Component {
   get value() {
-    return this.refs.selector.value;
+    return this.selector.value;
   }
 
   componentWillMount() {
@@ -16,7 +16,11 @@ class UserList extends Component {
   render() {
     return (
       <div className=".user-list" style={{ display: "inline-block" }}>
-        <select ref="selector">
+        <select
+          ref={selector => {
+            this.selector = selector;
+          }}
+        >
           {this.props.users.map(user => {
             const props = {
               key: user.entityId,

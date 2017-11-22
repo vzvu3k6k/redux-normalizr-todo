@@ -6,6 +6,14 @@
       "jsx": true
     }
   },
-  "plugins": ["react"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
+  "plugins": ["react", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }

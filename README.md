@@ -41,7 +41,7 @@ npm start
 }
 ```
 
-`/todos.json` has a nested object which represents a assigned user itself.
+`/todos.json` has a nested object which represents an assigned user itself.
 
 # normalizr
 Convert `/todos.json` to the flat structure which consists of `result` and `entities`.
@@ -78,8 +78,7 @@ Result represents api result, but it has the entity id only.
 Insert, update, delete entities.
 
 ## result
-Other reducers handles results. In most cases, it updates a list of entity ids, for example, appends(prepends) a new entity, remove a deleted entity. 
+Other reducers handles results. In most cases, it updates a list of entity ids, for example, appends(prepends) a new entity, remove a deleted entity.
 
 # Container(Smart Component)
-Container receives a entity id or a list of entity ids as props and get entities from `Provider` provided by `redux-connect`(https://github.com/reactjs/react-redux).
-
+Container receives an entity id or a list of entity ids as props and get entities from `Provider` provided by `redux-connect`(https://github.com/reactjs/react-redux).

@@ -40,10 +40,6 @@ TodoForm.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-function mapStateToProps(state) {
-  return {};
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
@@ -53,4 +49,4 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
+export default connect(null, mapDispatchToProps)(TodoForm);

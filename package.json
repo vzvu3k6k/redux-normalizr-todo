@@ -31,5 +31,9 @@
     "redux-actions": "^0.9.1",
     "redux-api-middleware": "^1.0.1",
     "redux-thunk": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-plugin-react": "^7.5.1"
   }
 }

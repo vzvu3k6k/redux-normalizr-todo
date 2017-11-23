@@ -31,8 +31,6 @@ class Todo extends Component {
   }
 
   render() {
-    console.log(this.props.todo.status);
-    console.log(this.props.todo.isDone);
     return this.props.todo.isDone
       ? this.renderFinishedTodo()
       : this.renderTodo();

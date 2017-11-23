@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 var express = require("express");
 var babelify = require("express-babelify-middleware");
 var Immutable = require("immutable");

@@ -19,8 +19,8 @@ const finishTodoAction = createAction("FINISH_TODO", entityId => {
   return { entityId };
 });
 
-export function fetchTodos(getState) {
-  return (dispatch, getState) => {
+export function fetchTodos() {
+  return dispatch => {
     fetch("/todos.json")
       .then(res => {
         return res.json();
@@ -61,7 +61,7 @@ export function finishTodo(entityId) {
         "Content-TYpe": "application/json"
       },
       body: JSON.stringify({ status: 2 })
-    }).then(res => {
+    }).then(() => {
       return dispatch(finishTodoAction(entityId));
     });
   };

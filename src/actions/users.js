@@ -13,8 +13,8 @@ const fetchUsersAction = createAction("FETCH_USERS", (result, entities) => {
   return { result, entities };
 });
 
-export function fetchUsers(getState) {
-  return (dispatch, getState) => {
+export function fetchUsers() {
+  return dispatch => {
     fetch("/users.json")
       .then(res => {
         return res.json();

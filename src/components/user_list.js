@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ImmutablePropTypes from "react-immutable-proptypes";
@@ -23,12 +23,8 @@ class UserList extends Component {
           }}
         >
           {this.props.users.map(user => {
-            const props = {
-              key: user.entityId,
-              value: user.entityId
-            };
             return (
-              <option {...props}>
+              <option key={user.entityId} value={user.entityId}>
                 {user.name}
                 {user.isBusy ? ":Busy" : ""}
               </option>

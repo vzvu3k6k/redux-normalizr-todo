@@ -14,6 +14,8 @@
     "prettier/react"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-var": "error",
+    "prefer-const": "error"
   }
 }

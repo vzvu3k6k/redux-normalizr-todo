@@ -3,7 +3,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { createTodo } from "../actions/todos";
 import UserList from "./user_list";
-import TextForm from "./text_form";
 
 class TodoForm extends Component {
   onClick() {

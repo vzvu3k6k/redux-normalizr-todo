@@ -42,8 +42,10 @@ app.use("/bundle.js", babelify("./src/index.js"));
 app.use(express.static("public"));
 app.listen(3000, function(error) {
   if (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
   } else {
+    // eslint-disable-next-line no-console
     console.info("Open up http://localhost:3000/ in your browser");
   }
 });

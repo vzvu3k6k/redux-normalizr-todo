@@ -14,7 +14,7 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div className=".todo-list">
+      <div className="todo-list">
         <TodoForm />
         <ul>
           {this.props.todos.map(entityId => {

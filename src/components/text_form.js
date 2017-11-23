@@ -8,7 +8,7 @@ export default class TextForm extends Component {
 
   render() {
     return (
-      <div className=".text-form">
+      <div className="text-form">
         <input
           ref={input => {
             this.input = input;

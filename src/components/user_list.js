@@ -16,7 +16,7 @@ class UserList extends Component {
 
   render() {
     return (
-      <div className=".user-list" style={{ display: "inline-block" }}>
+      <div className="user-list" style={{ display: "inline-block" }}>
         <select
           ref={selector => {
             this.selector = selector;

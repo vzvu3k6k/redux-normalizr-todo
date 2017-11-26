@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ImmutablePropTypes from "react-immutable-proptypes";
-import { bindActionCreators } from "redux";
 import { fetchUsers } from "../actions/users";
 
 class UserList extends Component {
@@ -49,14 +48,9 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      fetchUsers
-    },
-    dispatch
-  );
-}
+const mapDispatchToProps = {
+  fetchUsers
+};
 
 export default connect(mapStateToProps, mapDispatchToProps, undefined, {
   withRef: true

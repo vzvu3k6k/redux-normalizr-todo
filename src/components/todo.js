@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { TodoType } from "../models/todo";
 import { UserType } from "../models/user";
@@ -49,13 +48,8 @@ function mapStateToProps(state, ownProps) {
   return { todo, user };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      onClickDone: finishTodo
-    },
-    dispatch
-  );
-}
+const mapDispatchToProps = {
+  onClickDone: finishTodo
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todo);

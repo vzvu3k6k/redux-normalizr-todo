@@ -5,23 +5,17 @@ import Todo, { DONE } from "../../models/todo";
 
 function merge(state, action) {
   const payload = action.payload;
-  return _.reduce(
-    _.mapValues(payload.entities.todos),
-    (res, value) => {
+  return state.withMutations(mutable => {
+    _.values(payload.entities.todos).forEach(value => {
       const entityId = new Todo(value).entityId;
-      return res.update(entityId, new Todo(), current => {
-        return current.merge(value);
-      });
-    },
-    state
-  );
+      mutable.update(entityId, new Todo(), current => current.merge(value));
+    });
+  });
 }
 
 function finish(state, action) {
   const entityId = action.payload.entityId;
-  return state.update(entityId, todo => {
-    return todo.set("status", DONE);
-  });
+  return state.update(entityId, todo => todo.set("status", DONE));
 }
 
 const handlers = {

@@ -5,16 +5,12 @@ import User from "../../models/user";
 
 function merge(state, action) {
   const payload = action.payload;
-  return _.reduce(
-    _.mapValues(payload.entities.users),
-    (res, value) => {
+  return state.withMutations(mutable => {
+    _.values(payload.entities.users).forEach(value => {
       const entityId = new User(value).entityId;
-      return res.update(entityId, new User(), current => {
-        return current.merge(value);
-      });
-    },
-    state
-  );
+      mutable.update(entityId, new User(), current => current.merge(value));
+    });
+  });
 }
 
 const handlers = {

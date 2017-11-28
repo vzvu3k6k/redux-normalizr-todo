@@ -58,7 +58,7 @@ export function finishTodo(entityId) {
     fetch(`/todos/${todo.get("id")}.json`, {
       method: "PUT",
       headers: {
-        "Content-TYpe": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ status: 2 })
     }).then(() => {

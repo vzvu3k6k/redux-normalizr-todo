@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { createTodo } from "../actions/todos";
 import UserList from "./user_list";
@@ -40,13 +39,8 @@ TodoForm.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      onClick: createTodo
-    },
-    dispatch
-  );
-}
+const mapDispatchToProps = {
+  onClick: createTodo
+};
 
 export default connect(null, mapDispatchToProps)(TodoForm);

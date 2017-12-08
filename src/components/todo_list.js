@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ImmutablePropTypes from "react-immutable-proptypes";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { fetchTodos } from "../actions/todos";
 import Todo from "./todo";
@@ -36,13 +35,8 @@ function mapStateToProps(state) {
   return { todos };
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      fetchTodos
-    },
-    dispatch
-  );
-}
+const mapDispatchToProps = {
+  fetchTodos
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
